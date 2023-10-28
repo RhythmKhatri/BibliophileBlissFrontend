@@ -133,10 +133,8 @@ export default function PrimarySearchAppBar(params) {
         <p>Cart</p>
       </MenuItem>
 
-      {(Object.keys(user).length === 0 || user._id) && <MenuItem onClick={() => {
-        if (user._id) navigate('/signIn'); else {
-          params.setNotification({ open: true, message: "You need to SignIn First", severity: "error" });
-        }
+      {(Object.keys(user).length === 0 || user._id === undefined) ? <MenuItem onClick={() => {
+        navigate('/signIn');
       }}>
 
         <IconButton
@@ -150,8 +148,8 @@ export default function PrimarySearchAppBar(params) {
           <AccountCircle />
         </IconButton>
         SignIn
-      </MenuItem>}
-      {Object.keys(user).length !== 0 && <MenuItem onClick={handleSignOut}>
+      </MenuItem>
+      : <MenuItem onClick={handleSignOut}>
         <IconButton
           size="large"
           aria-label="account of current user"
