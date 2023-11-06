@@ -137,9 +137,9 @@ export default function SignIn(params) {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/SignUp" variant="body2">
+                <Button style={{ textTransform: 'none', color:'blue' }} onClick={()=>{navigate('/SignUp');}} variant="body2">
                   {"Don't have an account? Sign Up"}
-                </Link>
+                </Button>
               </Grid>
             </Grid>
           </Box>
